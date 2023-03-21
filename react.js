@@ -7,7 +7,7 @@ minutes_counter = 0
 hours_counter = 0
 function update_clock(){
     let hour_time = new Date().getHours()
-    const minute_time = new Date().getMinutes()
+    let minute_time = new Date().getMinutes()
     let second_time = new Date().getSeconds()
     if (hour_time>12){
         hour_time = hour_time - 12
@@ -18,10 +18,12 @@ function update_clock(){
     if (minute_time == 0){
         minutes_counter += 60
     }
-    if (second_time == 0){
+    if (hour_time == 0){
         hours_counter += 60
     }
     second_time += seconds_counter
+    minute_time += minutes_counter
+    hour_time += hours_counter
     const rotation_deg_hour = (hour_time/12)*360
     const rotation_deg_minute = (minute_time/60)*360
     const rotation_deg_second = (second_time/60)*360
